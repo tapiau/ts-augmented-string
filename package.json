@@ -1,6 +1,6 @@
 {
   "name": "ts-augumented-string",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -8,6 +8,11 @@
     "test": "mocha src/**/*.spec.ts",
     "test:watch": "mocha --watch --recursive src/**/*.spec.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tapiau/ts-augumented-string.git"
+  },
+
   "keywords": [
     "typescript",
     "string",
