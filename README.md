@@ -1,4 +1,4 @@
-# JS String augumented
+# JS String augmented
 
 Extends String methods adding:
 - lcFirst(): string;
