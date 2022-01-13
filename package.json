@@ -1,5 +1,5 @@
 {
-  "name": "@tapiau/augmented-string",
+  "name": "augmented-string",
   "version": "0.0.5",
   "description": "",
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:tapiau/ts-augumented-string.git"
+    "url": "git@github.com:tapiau/ts-augmented-string.git"
   },
 
   "keywords": [
@@ -33,9 +33,9 @@
   }],
   "license": "MIT",
   "dependencies": {
-    "typescript": "^4.4.3"
   },
   "devDependencies": {
+    "typescript": "^4.4.3",
     "@types/chai": "^4.2.22",
     "@types/extend": "^3.0.1",
     "@types/mathjs": "^9.4.2",
