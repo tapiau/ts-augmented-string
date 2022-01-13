@@ -1,5 +1,5 @@
 {
-  "name": "ts-augumented-string",
+  "name": "@tapiau/augmented-string",
   "version": "0.0.5",
   "description": "",
   "main": "dist/index.js",
@@ -22,6 +22,7 @@
     "toInt",
     "toFloat",
     "toCamel",
+    "toPascal",
     "toSnake"
   ],
   "author": "Zbigniew 'zibi' Jarosik",
