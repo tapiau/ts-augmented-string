@@ -53,12 +53,31 @@ describe('String extension functions', () => {
             expect('aaa_bbb_ccc'.toCamel()).to.be.equal('aaaBbbCcc');
         });
     });
+    describe('"aaa bbb ccc".toCamel', () => {
+        it('should be string', () => {
+            expect('aaa bbb ccc'.toCamel()).to.be.a('string');
+        });
+        it('should be "aaaBbbCcc"', () => {
+            expect('aaa bbb ccc'.toCamel()).to.be.equal('aaaBbbCcc');
+        });
+    });
     describe('"aaaBbbCcc".toSnake', () => {
         it('should be string', () => {
             expect('aaaBbbCcc'.toSnake()).to.be.a('string');
         });
         it('should be "aaa_bbb_ccc"', () => {
             expect('aaaBbbCcc'.toSnake()).to.be.equal('aaa_bbb_ccc');
+        });
+        it('should be "aaa bbb ccc"', () => {
+            expect('aaa bbb ccc'.toSnake()).to.be.equal('aaa_bbb_ccc');
+        });
+    });
+    describe('"aaa_bbb_ccc".toPascal', () => {
+        it('should be string', () => {
+            expect('aaa_bbb_ccc'.toPascal()).to.be.a('string');
+        });
+        it('should be "aaaBbbCcc"', () => {
+            expect('aaa_bbb_ccc'.toPascal()).to.be.equal('AaaBbbCcc');
         });
     });
 });
