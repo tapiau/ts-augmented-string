@@ -37,6 +37,7 @@ String.prototype.toCamel = function(): string {
 String.prototype.toPascal = function(): string {
     return String(this)
         .replace(/[-_]/g, ' ')
+        .replace(/(?:^\w|[A-Z]|\b\w)/g, (word) => ' ' + word)
         .replace(/(?:^\w|[A-Z]|\b\w)/g, (word) => word.toUpperCase())
         .replace(/\s/g, '')
     ;
@@ -44,7 +45,8 @@ String.prototype.toPascal = function(): string {
 String.prototype.toSnake = function(): string {
     return String(this)
         .replace(/[-\ ]/g, '_')
-        .replace(/(_*)[A-Z]/g, (letter) => `_${letter.toLowerCase()}`)
+        .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => (index ? '_' : '') + word.toLowerCase())
+        .replace(/_+/g, '_')
     ;
 };
 

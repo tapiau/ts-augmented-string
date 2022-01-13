@@ -6,20 +6,29 @@ describe('String extension functions', () => {
     before(() => {
     });
     describe('"123".toInt', () => {
-        it('should be number', () => {
-            expect('123'.toInt()).to.be.a('number');
-        });
-        it('should be 123', () => {
-            expect('123'.toInt()).to.be.equal(123);
-        });
+        const testList = {
+            '123': 123,
+            '123ddd': 123,
+            '123.456': 123
+        };
+        Object.entries(testList).forEach(([src, dst]) =>
+            it(`should convert "${src}" to ${dst}`, () => {
+                expect(src.toInt()).to.be.a('number');
+                expect(src.toInt()).to.be.equal(dst);
+            })
+        );
     });
     describe('"123.456".toFloat', () => {
-        it('should be number', () => {
-            expect('123.456'.toFloat()).to.be.a('number');
-        });
-        it('should be 123.456', () => {
-            expect('123.456'.toFloat()).to.be.equal(123.456);
-        });
+        const testList = {
+            '123.456': 123.456,
+            '123.456aaa': 123.456
+        };
+        Object.entries(testList).forEach(([src, dst]) =>
+            it(`should convert "${src}" to ${dst}`, () => {
+                expect(src.toFloat()).to.be.a('number');
+                expect(src.toFloat()).to.be.equal(dst);
+            })
+        );
     });
     describe('"aaa".ucFirst', () => {
         it('should be string', () => {
@@ -45,39 +54,48 @@ describe('String extension functions', () => {
             expect('AAA'.lcFirst()).to.be.equal('aAA');
         });
     });
-    describe('"aaa_bbb_ccc".toCamel', () => {
-        it('should be string', () => {
-            expect('aaa_bbb_ccc'.toCamel()).to.be.a('string');
-        });
-        it('should be "aaaBbbCcc"', () => {
-            expect('aaa_bbb_ccc'.toCamel()).to.be.equal('aaaBbbCcc');
-        });
-    });
     describe('"aaa bbb ccc".toCamel', () => {
-        it('should be string', () => {
-            expect('aaa bbb ccc'.toCamel()).to.be.a('string');
-        });
-        it('should be "aaaBbbCcc"', () => {
-            expect('aaa bbb ccc'.toCamel()).to.be.equal('aaaBbbCcc');
-        });
+        const testList = {
+            'aaa_bbb_ccc': 'aaaBbbCcc',
+            'aaa-bbb-ccc': 'aaaBbbCcc',
+            'AaA bbB cCC': 'aaABbBCCC',
+            'Aaa Bbb Ccc': 'aaaBbbCcc',
+            'aa_a_bb_b_c_c_c': 'aaABbBCCC'
+        };
+        Object.entries(testList).forEach(([src, dst]) =>
+            it(`should convert "${src}" to "${dst}"`, () => {
+                expect(src.toCamel()).to.be.a('string');
+                expect(src.toCamel()).to.be.equal(dst);
+            })
+        );
     });
     describe('"aaaBbbCcc".toSnake', () => {
-        it('should be string', () => {
-            expect('aaaBbbCcc'.toSnake()).to.be.a('string');
-        });
-        it('should be "aaa_bbb_ccc"', () => {
-            expect('aaaBbbCcc'.toSnake()).to.be.equal('aaa_bbb_ccc');
-        });
-        it('should be "aaa bbb ccc"', () => {
-            expect('aaa bbb ccc'.toSnake()).to.be.equal('aaa_bbb_ccc');
-        });
+        const testList = {
+            'aaa_bbb_ccc': 'aaa_bbb_ccc',
+            'aaa-bbb-ccc': 'aaa_bbb_ccc',
+            'AaA bbB cCC': 'aa_a_bb_b_c_c_c',
+            'Aaa Bbb Ccc': 'aaa_bbb_ccc'
+        };
+        Object.entries(testList).forEach(([src, dst]) =>
+            it(`should convert "${src}" to "${dst}"`, () => {
+                expect(src.toSnake()).to.be.a('string');
+                expect(src.toSnake()).to.be.equal(dst);
+            })
+        );
     });
-    describe('"aaa_bbb_ccc".toPascal', () => {
-        it('should be string', () => {
-            expect('aaa_bbb_ccc'.toPascal()).to.be.a('string');
-        });
-        it('should be "aaaBbbCcc"', () => {
-            expect('aaa_bbb_ccc'.toPascal()).to.be.equal('AaaBbbCcc');
-        });
+    describe('.toPascal', () => {
+        const testList = {
+            'aaa_bbb_ccc': 'AaaBbbCcc',
+            'aaa-bbb-ccc': 'AaaBbbCcc',
+            'AaA bbB cCC': 'AaABbBCCC',
+            'Aaa Bbb Ccc': 'AaaBbbCcc',
+            'aa_a_bb_b_c_c_c': 'AaABbBCCC'
+        };
+        Object.entries(testList).forEach(([src, dst]) =>
+            it(`should convert "${src}" to "${dst}"`, () => {
+                expect(src.toPascal()).to.be.a('string');
+                expect(src.toPascal()).to.be.equal(dst);
+            })
+        );
     });
 });
