@@ -8,6 +8,7 @@ declare global {
         toCamel(): string;
         toSnake(): string;
         toPascal(): string;
+        repeat(count: number): string;
     }
 }
 String.prototype.lcFirst = function(): string {
@@ -48,6 +49,12 @@ String.prototype.toSnake = function(): string {
         .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => (index ? '_' : '') + word.toLowerCase())
         .replace(/_+/g, '_')
     ;
+};
+String.prototype.repeat = function(count: number) {
+    return String(
+        (new Array(count + 1))
+            .join(String(this))
+    );
 };
 
 export {};

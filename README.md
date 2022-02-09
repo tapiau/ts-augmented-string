@@ -1,4 +1,4 @@
-# JS String augmented
+# TS Augmented String
 
 Extends String methods adding:
 - lcFirst(): string;
@@ -9,3 +9,6 @@ Extends String methods adding:
 - toCamel(): string;
 - toSnake(): string;
 - toPascal(): string;
+- repeat(count): string;
+
+No additional dependencies!

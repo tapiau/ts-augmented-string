@@ -98,4 +98,17 @@ describe('String extension functions', () => {
             })
         );
     });
+    describe('.repeat', () => {
+        const testList = [
+            { src: 'a12', count: 0, dst: '' },
+            { src: 'a12', count: 1, dst: 'a12' },
+            { src: 'a12', count: 2, dst: 'a12a12' },
+        ];
+        testList.forEach((row) =>
+            it(`should convert "${row.src}" count ${row.count} to "${row.dst}"`, () => {
+                expect(row.src.repeat(row.count)).to.be.a('string');
+                expect(row.src.repeat(row.count)).to.be.equal(row.dst);
+            })
+        );
+    });
 });
