@@ -7,9 +7,9 @@ describe('String extension functions', () => {
     });
     describe('"123".toInt', () => {
         const testList = {
-            '123': 123,
+            123: 123,
             '123ddd': 123,
-            '123.456': 123
+            123.456: 123
         };
         Object.entries(testList).forEach(([src, dst]) =>
             it(`should convert "${src}" to ${dst}`, () => {
@@ -20,7 +20,7 @@ describe('String extension functions', () => {
     });
     describe('"123.456".toFloat', () => {
         const testList = {
-            '123.456': 123.456,
+            123.456: 123.456,
             '123.456aaa': 123.456
         };
         Object.entries(testList).forEach(([src, dst]) =>
@@ -56,11 +56,11 @@ describe('String extension functions', () => {
     });
     describe('"aaa bbb ccc".toCamel', () => {
         const testList = {
-            'aaa_bbb_ccc': 'aaaBbbCcc',
+            aaa_bbb_ccc: 'aaaBbbCcc',
             'aaa-bbb-ccc': 'aaaBbbCcc',
             'AaA bbB cCC': 'aaABbBCCC',
             'Aaa Bbb Ccc': 'aaaBbbCcc',
-            'aa_a_bb_b_c_c_c': 'aaABbBCCC'
+            aa_a_bb_b_c_c_c: 'aaABbBCCC'
         };
         Object.entries(testList).forEach(([src, dst]) =>
             it(`should convert "${src}" to "${dst}"`, () => {
@@ -71,7 +71,7 @@ describe('String extension functions', () => {
     });
     describe('"aaaBbbCcc".toSnake', () => {
         const testList = {
-            'aaa_bbb_ccc': 'aaa_bbb_ccc',
+            aaa_bbb_ccc: 'aaa_bbb_ccc',
             'aaa-bbb-ccc': 'aaa_bbb_ccc',
             'AaA bbB cCC': 'aa_a_bb_b_c_c_c',
             'Aaa Bbb Ccc': 'aaa_bbb_ccc'
@@ -85,11 +85,11 @@ describe('String extension functions', () => {
     });
     describe('.toPascal', () => {
         const testList = {
-            'aaa_bbb_ccc': 'AaaBbbCcc',
+            aaa_bbb_ccc: 'AaaBbbCcc',
             'aaa-bbb-ccc': 'AaaBbbCcc',
             'AaA bbB cCC': 'AaABbBCCC',
             'Aaa Bbb Ccc': 'AaaBbbCcc',
-            'aa_a_bb_b_c_c_c': 'AaABbBCCC'
+            aa_a_bb_b_c_c_c: 'AaABbBCCC'
         };
         Object.entries(testList).forEach(([src, dst]) =>
             it(`should convert "${src}" to "${dst}"`, () => {
