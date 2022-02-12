@@ -23,7 +23,8 @@
     "toFloat",
     "toCamel",
     "toPascal",
-    "toSnake"
+    "toSnake",
+    "repeat"
   ],
   "author": "Zbigniew 'zibi' Jarosik",
   "maintainers": [{
