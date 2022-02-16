@@ -3,11 +3,12 @@ declare global {
         lcFirst(): string;
         ucFirst(): string;
         ucWords(): string;
-        toInt(): number;
         toFloat(): number;
+        toInt(): number;
         toCamel(): string;
-        toSnake(): string;
+        toKebab(): string;
         toPascal(): string;
+        toSnake(): string;
         repeat(count: number): string;
     }
 }
@@ -31,26 +32,33 @@ String.prototype.toFloat = function(): number {
 String.prototype.toCamel = function(): string {
     return String(this)
         .replace(/[-_]/g, ' ')
-        .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => index ? word.toUpperCase() : word.toLowerCase() )
+        .replace(/^\w|[A-Z]|\b\w/g, (word, index) => index ? word.toUpperCase() : word.toLowerCase() )
         .replace(/\s+/g, '')
     ;
 };
 String.prototype.toPascal = function(): string {
     return String(this)
         .replace(/[-_]/g, ' ')
-        .replace(/(?:^\w|[A-Z]|\b\w)/g, (word) => ' ' + word)
-        .replace(/(?:^\w|[A-Z]|\b\w)/g, (word) => word.toUpperCase())
+        .replace(/^\w|[A-Z]|\b\w/g, (word) => ' ' + word)
+        .replace(/^\w|[A-Z]|\b\w/g, (word) => word.toUpperCase())
         .replace(/\s/g, '')
     ;
 };
 String.prototype.toSnake = function(): string {
     return String(this)
-        .replace(/[-\ ]/g, '_')
-        .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => (index ? '_' : '') + word.toLowerCase())
+        .replace(/[- ]/g, '_')
+        .replace(/^\w|[A-Z]|\b\w/g, (word, index) => (index ? '_' : '') + word.toLowerCase())
         .replace(/_+/g, '_')
     ;
 };
-String.prototype.repeat = function(count: number) {
+String.prototype.toKebab = function(): string {
+    return String(this)
+        .replace(/[_ ]/g, '-')
+        .replace(/^\w|[A-Z]|\b\w/g, (word, index) => (index ? '-' : '') + word.toLowerCase())
+        .replace(/-+/g, '-')
+    ;
+};
+String.prototype.repeat = function(count: number): string {
     return String(
         (new Array(count + 1))
             .join(String(this))

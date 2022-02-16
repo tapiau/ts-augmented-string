@@ -5,7 +5,7 @@ import './index';
 describe('String extension functions', () => {
     before(() => {
     });
-    describe('"123".toInt', () => {
+    describe('.toInt', () => {
         const testList = {
             123: 123,
             '123ddd': 123,
@@ -18,7 +18,7 @@ describe('String extension functions', () => {
             })
         );
     });
-    describe('"123.456".toFloat', () => {
+    describe('.toFloat', () => {
         const testList = {
             123.456: 123.456,
             '123.456aaa': 123.456
@@ -30,7 +30,7 @@ describe('String extension functions', () => {
             })
         );
     });
-    describe('"aaa".ucFirst', () => {
+    describe('.ucFirst', () => {
         it('should be string', () => {
             expect('aaa'.ucFirst()).to.be.a('string');
         });
@@ -38,7 +38,7 @@ describe('String extension functions', () => {
             expect('aaa'.ucFirst()).to.be.equal('Aaa');
         });
     });
-    describe('"hello world!".ucWords', () => {
+    describe('.ucWords', () => {
         it('should be string', () => {
             expect('aaa'.ucWords()).to.be.a('string');
         });
@@ -46,7 +46,7 @@ describe('String extension functions', () => {
             expect('hello world!'.ucWords()).to.be.equal('Hello World!');
         });
     });
-    describe('"AAA".lcFirst', () => {
+    describe('.lcFirst', () => {
         it('should be string', () => {
             expect('AAA'.lcFirst()).to.be.a('string');
         });
@@ -54,7 +54,7 @@ describe('String extension functions', () => {
             expect('AAA'.lcFirst()).to.be.equal('aAA');
         });
     });
-    describe('"aaa bbb ccc".toCamel', () => {
+    describe('.toCamel', () => {
         const testList = {
             aaa_bbb_ccc: 'aaaBbbCcc',
             'aaa-bbb-ccc': 'aaaBbbCcc',
@@ -69,7 +69,7 @@ describe('String extension functions', () => {
             })
         );
     });
-    describe('"aaaBbbCcc".toSnake', () => {
+    describe('.toSnake', () => {
         const testList = {
             aaa_bbb_ccc: 'aaa_bbb_ccc',
             'aaa-bbb-ccc': 'aaa_bbb_ccc',
@@ -80,6 +80,20 @@ describe('String extension functions', () => {
             it(`should convert "${src}" to "${dst}"`, () => {
                 expect(src.toSnake()).to.be.a('string');
                 expect(src.toSnake()).to.be.equal(dst);
+            })
+        );
+    });
+    describe('.toKebab', () => {
+        const testList = {
+            aaa_bbb_ccc: 'aaa-bbb-ccc',
+            'aaa-bbb-ccc': 'aaa-bbb-ccc',
+            'AaA bbB cCC': 'aa-a-bb-b-c-c-c',
+            'Aaa Bbb Ccc': 'aaa-bbb-ccc'
+        };
+        Object.entries(testList).forEach(([src, dst]) =>
+            it(`should convert "${src}" to "${dst}"`, () => {
+                expect(src.toKebab()).to.be.a('string');
+                expect(src.toKebab()).to.be.equal(dst);
             })
         );
     });
