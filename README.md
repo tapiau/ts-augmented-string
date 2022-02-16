@@ -4,11 +4,12 @@ Extends String methods adding:
 - lcFirst(): string;
 - ucFirst(): string;
 - ucWords(): string;
-- toInt(): number;
 - toFloat(): number;
+- toInt(): number;
 - toCamel(): string;
-- toSnake(): string;
+- toKebab(): string;
 - toPascal(): string;
+- toSnake(): string;
 - repeat(count): string;
 
 No additional dependencies!
